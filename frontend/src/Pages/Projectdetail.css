@@ -1,0 +1,197 @@
+.bottom-sheet {
+  position: fixed;
+  bottom: -100%;
+  left: 0;
+  width: 100%;
+  height: 95%;
+  background: white;
+  box-shadow: 0px -4px 10px rgba(0, 0, 0, 0.2);
+  border-radius: 15px 15px 0 0;
+  padding: 40px 30px;
+  display: flex;
+  flex-direction: column;
+  transition: bottom 0.4s ease-in-out;
+  overflow-y: auto;
+}
+
+.bottom-sheet.show {
+  bottom: 0;
+}
+
+.modal-content {
+  width: 100%;
+}
+
+.close_icon {
+  width: 24px;
+  height: 24px;
+  cursor: pointer;
+  position: absolute;
+  top: 15px;
+  right: 15px;
+}
+
+.product-info-box {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  margin: auto;
+  padding: 0px 20px;
+  width: 100%;
+  max-width: 900px;
+}
+
+.Product-Name {
+  font-family: "inter";
+  font-size: 28px;
+  font-weight: bold;
+  margin: 20px 0px;
+}
+
+.user-icon {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  gap: 10px;
+  align-items: center;
+}
+
+.user-img {
+  width: 50px;
+  height: 50px;
+  border: 1px solid black;
+  border-radius: 50%;
+}
+
+.TR {
+  font-size: 16px;
+  color: rgb(51, 50, 50);
+  font-family: "inter";
+  font-weight: bold;
+}
+
+.prodcut-box-pic {
+  width: 100%;
+  max-width: 900px;
+  height: auto;
+  background-color: rgb(255, 255, 255);
+  border-radius: 20px;
+  margin: 20px auto;
+  box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.prodcut-box-pic>img,
+.prodcut-box-pic>video {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+  border-radius: 20px;
+}
+
+.product-Description {
+  width: 100%;
+  max-width: 900px;
+  text-align: left;
+  margin: 30px auto;
+}
+
+.Project-Overview {
+  font-family: "inter";
+  font-weight: bold;
+  font-size: 20px;
+  margin-bottom: 20px;
+}
+
+.Project-Overview-desc {
+  font-family: "inter";
+  font-size: 14px;
+  width: 100%;
+  max-width: 673px;
+  line-height: 1.5;
+  color: rgb(99, 99, 99);
+}
+
+.three-lines {
+  width: 100%;
+  max-width: 1039px;
+  margin: 30px auto;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.twolines {
+  width: 100%;
+  max-width: 500px;
+  height: 1px;
+  background-color: black;
+}
+
+.cricleee-user {
+  max-width: 55px;
+  width: 100%;
+  height: 55px;
+}
+
+.cricleee-user > img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 50%;
+}
+
+.githuburl{
+  margin-top: 20px;
+  padding: 10px 20px;
+  background-color: black;
+  color: white;
+  font-family: "inter";
+  width: 100px;
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .bottom-sheet {
+    height: 90%;
+    padding: 30px 20px;
+  }
+  .Product-Name {
+    font-size: 22px;
+  }
+  .Project-Overview {
+    font-size: 18px;
+  }
+  .Project-Overview-desc {
+    font-size: 12px;
+  }
+  .three-lines {
+    flex-direction: column;
+    gap: 10px;
+  }
+  .prodcut-box-pic {
+    height: auto;
+  }
+}
+
+@media (max-width: 480px) {
+  .bottom-sheet {
+    height: 85%;
+  }
+  .Product-Name {
+    font-size: 20px;
+  }
+  .Project-Overview {
+    font-size: 16px;
+  }
+  .Project-Overview-desc {
+    font-size: 12px;
+    max-width: 100%;
+  }
+  .prodcut-box-pic {
+    height: auto;
+  }
+}

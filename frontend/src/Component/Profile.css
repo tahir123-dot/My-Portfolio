@@ -1,0 +1,139 @@
+.profile_container {
+  max-width: 1248px;
+  padding: 40px 20px;
+  margin: 0 auto 60px;
+}
+
+.title {
+  font-size: 36px;
+  font-weight: bold;
+  margin-bottom: 20px;
+}
+
+.highliight{
+  color: #2199e3;
+}
+
+/* Tabs Styling */
+.tab-wrapper {
+  display: flex;
+  justify-content: flex-start;
+  background: #f5f5f5;
+  padding: 10px;
+  border-radius: 10px;
+  width: fit-content;
+}
+
+.tab-container {
+  display: flex;
+  gap: 20px;
+}
+
+.tab {
+  padding: 12px 20px;
+  cursor: pointer;
+  border: none;
+  background: transparent;
+  font-size: 16px;
+  font-weight: bold;
+  color: #333;
+  transition: all 0.3s ease;
+}
+
+.tab.active {
+  background: #2199e3;
+  color: #fff;
+  border-radius: 5px;
+}
+
+/* Experience Section */
+.experience-container {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+  margin-top: 20px;
+}
+
+.experience-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 30px;
+}
+
+/* Timeline */
+.timeline {
+  position: relative;
+  width: 60px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.rect-box {
+  width: 40px;
+  height: 40px;
+  background-color: #bbb;
+  border-radius: 5px;
+}
+
+.lline {
+  width: 4px;
+  height: 80px;
+  background-color: #2199e3;
+  margin-top: 5px;
+}
+
+/* Details */
+.details {
+  flex: 1;
+}
+
+.company {
+  font-size: 18px;
+  font-weight: bold;
+  color: #2199e3;
+}
+
+.date,
+.position,
+.location,
+.description {
+  margin: 5px 0;
+  color: #555;
+}
+
+/* Skills */
+.skills {
+  display: flex;
+  gap: 5px;
+  margin-top: 10px;
+}
+
+.skill-tag {
+  background-color: #ddd;
+  padding: 5px 10px;
+  border-radius: 5px;
+  font-size: 14px;
+}
+
+/* Responsive Design */
+@media (max-width: 560px) {
+  .profile_container {
+    width: 100%;
+    padding-left: 20px;
+    padding-right: 0px;
+    margin: 0;
+    margin-bottom: 60px;
+  }
+}
+
+
+@media (max-width: 480px) {
+  .profile_container {
+    width: 100%;
+    padding-left: 20px;
+    padding-right: 0px;
+    margin: 0;
+    margin-bottom: 60px;
+  }
+}

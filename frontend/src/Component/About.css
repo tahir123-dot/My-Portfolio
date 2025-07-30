@@ -1,0 +1,125 @@
+.about_container {
+  max-width: 1248px;
+  padding: 40px 20px;
+  margin: 0 auto 60px;
+  display: flex;
+  justify-content: space-between;
+  gap: 40px;
+  flex-wrap: wrap;
+  background-color: #2f2f2f;
+}
+
+.about {
+  background-color: #2f2f2f;
+  width: 55%;
+  margin-top: 40px;
+  margin-bottom: 40px;
+}
+
+.about_me {
+  font-family: "Inria Serif";
+  font-weight: bold;
+  font-size: 26px;
+  color: white;
+  margin-bottom: 20px;
+  background-color: #2f2f2f;
+}
+
+.me {
+  color: #aab99a;
+  background-color: #2f2f2f;
+}
+
+.hire_me {
+  color: #aab99a;
+  font-size: 22px;
+  font-family: "Inter", sans-serif;
+  font-weight: 300;
+  line-height: 1.5;
+  margin-bottom: 20px;
+  background-color: #2f2f2f;
+}
+
+.about_description {
+  font-family: "Inter", sans-serif;
+  font-size: 15px;
+  color: white;
+  background-color: #2f2f2f;
+  line-height: 1.8;
+}
+
+.about_img {
+  width: 40%;
+  background-color: #2f2f2f;
+  display: flex;
+  align-items: center;
+}
+
+.about_img img {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+  border-radius: 5px;
+  max-height: 400px;
+}
+
+@media (max-width: 1024px) {
+  .about_container {
+    flex-direction: column;
+    padding: 30px;
+  }
+
+  .about,
+  .about_img {
+    width: 100%;
+  }
+
+  .about_img {
+    justify-content: center;
+  }
+
+  .about_img img {
+    max-width: 400px;
+  }
+}
+
+@media (max-width: 768px) {
+  .about_container {
+    padding: 20px 15px;
+  }
+
+  .about_me {
+    font-size: 24px;
+  }
+
+  .hire_me {
+    font-size: 20px;
+  }
+}
+
+@media (max-width: 480px) {
+  .about_container {
+    padding: 15px 10px;
+    margin-bottom: 40px;
+  }
+
+  .about {
+    margin: 20px 0;
+  }
+
+  .about_me {
+    font-size: 22px;
+  }
+
+  .hire_me {
+    font-size: 18px;
+  }
+
+  .about_description {
+    font-size: 14px;
+  }
+
+  .about_img {
+    display: none;
+  }
+}
