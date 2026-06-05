@@ -90,6 +90,36 @@
   color: #4f4d4d;
 }
 
+.category {
+  padding: 20px;
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+  align-items: center;
+}
+
+.category-item {
+  padding: 10px 20px;
+  border: 1px solid #000;
+  border-radius: 999px; /* Oval Shape */
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: 500;
+  background-color: transparent;
+  color: #000;
+  transition: all 0.3s ease;
+}
+
+.category-item:hover {
+  background-color: #f5f5f5;
+}
+
+.category-item.active {
+  background-color: #000;
+  color: #fff;
+  border-color: #000;
+}
+
 .All-Projects-list {
   margin-top: 20px;
   width: 100%;
@@ -116,7 +146,7 @@
 video {
   width: 100%;
   height: 100%;
-  object-fit:fill;
+  object-fit:cover;
   cursor: pointer;
 }
 

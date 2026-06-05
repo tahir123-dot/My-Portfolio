@@ -3,55 +3,74 @@ import "./Allproject.css";
 import { Link } from "react-router-dom";
 import Projectdetail from "./Projectdetail";
 
+const CATEGORIES = [
+  "All",
+  "NLP",
+  "Agentic Ai",
+  "N8N",
+  "Mern Stack",
+  "Flutter",
+  "Figma",
+  "Camunda",
+];
+
 const Allproject = () => {
   const [showDetail, setShowDetail] = useState(false);
   const [posts, setPosts] = useState([]);
   const [selected, setSelected] = useState({});
-  const [searchQuery, setSearchQuery] = useState(""); 
-  const [filteredPosts, setFilteredPosts] = useState([]); 
+  const [searchQuery, setSearchQuery] = useState("");
+  const [activeCategory, setActiveCategory] = useState("All");
 
   const handleHireClick = () => {
-    
-    const phoneNumber = "923415150339"; 
-    const whatsappLink = `https://wa.me/${phoneNumber}`;
-
-    
-    window.open(whatsappLink, "_blank");
+    window.open(`https://wa.me/923415150339`, "_blank");
   };
 
-  // 🔹 Fetch all posts initially
-  const fetchpost = async () => {
+  // Fetch by category — hits /posts?category=Flutter
+  const fetchByCategory = async (cat) => {
     try {
-      const response = await fetch(`${import.meta.env.VITE_BACKEND_URL}/posts`);
+      const url =
+        cat === "All"
+          ? `${import.meta.env.VITE_BACKEND_URL}/posts`
+          : `${import.meta.env.VITE_BACKEND_URL}/posts?category=${encodeURIComponent(cat)}`;
+      const response = await fetch(url);
       const data = await response.json();
       setPosts(data);
-      setFilteredPosts(data); // Initialize filteredPosts
     } catch (error) {
-      console.error("Error fetching posts: ", error);
+      console.error("Error fetching posts:", error);
     }
   };
 
-  // 🔹 Search API function
-  const search = async (query) => {
+  // Search by name
+  const fetchSearch = async (query) => {
     try {
-      // Check if the query is empty
-      if (!query) {
-        setFilteredPosts(posts); // If empty, show all posts
+      if (!query.trim()) {
+        fetchByCategory(activeCategory);
         return;
       }
-      // Call search API with query
       const response = await fetch(
-        `${import.meta.env.VITE_BACKEND_URL}/search?name=${query.trim()}`
+        `${import.meta.env.VITE_BACKEND_URL}/search?name=${encodeURIComponent(query.trim())}`,
       );
       const data = await response.json();
-      setFilteredPosts(data); // Update filtered posts
+      setPosts(data);
     } catch (error) {
-      console.error("Error in search query: ", error);
+      console.error("Error in search:", error);
     }
+  };
+
+  const handleCategoryClick = (cat) => {
+    setActiveCategory(cat);
+    setSearchQuery(""); // clear search when switching category
+    fetchByCategory(cat);
+  };
+
+  const handleSearchChange = (e) => {
+    const val = e.target.value;
+    setSearchQuery(val);
+    fetchSearch(val);
   };
 
   useEffect(() => {
-    fetchpost();
+    fetchByCategory("All");
   }, []);
 
   return (
@@ -65,17 +84,13 @@ const Allproject = () => {
             </h3>
           </div>
 
-          {/* 🔹 Search Input */}
-          <div>
+          <div className="search-wrap">
             <input
               className="search"
               type="text"
-              placeholder="Search by name"
+              placeholder="Search by name..."
               value={searchQuery}
-              onChange={(e) => {
-                setSearchQuery(e.target.value);
-                search(e.target.value); // Call search API
-              }}
+              onChange={handleSearchChange}
             />
           </div>
 
@@ -93,32 +108,48 @@ const Allproject = () => {
           <p className="Transforming">Transforming Ideas into Reality</p>
           <p className="transforming-para">
             Explore a collection of expertly crafted projects in App
-            Development, Web Development, Java Spring Boot, React Native, MERN
-            Stack, and Figma Designs—all designed to deliver innovation and
-            impact.
+            Development, Web Development, MERN Stack, Flutter, and Figma Designs
+            — built to deliver innovation and impact.
           </p>
         </div>
 
-        {/* 🔹 Display Search Results or All Posts */}
-        <div className="All-Projects-list">
-          {filteredPosts.map((post, index) => (
+        <div className="category">
+          {CATEGORIES.map((cat) => (
             <div
-              key={index}
-              className="boxess"
-              onClick={() => {
-                setShowDetail(true);
-                setSelected(post);
-              }}
+              key={cat}
+              className={`category-item ${activeCategory === cat ? "active" : ""}`}
+              onClick={() => handleCategoryClick(cat)}
             >
-              {post.mediaType === "image" ? (
-                <img src={post.mediaUrl} alt={post.name} />
-              ) : (
-                <video autoPlay muted>
-                  <source src={`${post.mediaUrl}?q_auto,f_auto`} />
-                </video>
-              )}
+              {cat === "Flutter" ? "Flutter App" : cat}
             </div>
           ))}
+        </div>
+
+        <div className="All-Projects-list">
+          {posts.length === 0 ? (
+            <p style={{ color: "#aaa", fontSize: "14px", padding: "40px" }}>
+              No projects found.
+            </p>
+          ) : (
+            posts.map((post, index) => (
+              <div
+                key={index}
+                className="boxess"
+                onClick={() => {
+                  setShowDetail(true);
+                  setSelected(post);
+                }}
+              >
+                {post.mediaType === "image" ? (
+                  <img src={post.mediaUrl} alt={post.name} />
+                ) : (
+                  <video autoPlay muted loop playsInline>
+                    <source src={`${post.mediaUrl}?q_auto,f_auto`} />
+                  </video>
+                )}
+              </div>
+            ))
+          )}
         </div>
       </div>
 
