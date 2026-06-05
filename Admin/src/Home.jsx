@@ -7,11 +7,20 @@ const Home = () => {
   const [name, setName] = useState("");
   const [description, setDescription] = useState("");
   const [category, setCategory] = useState("");
+  const [skillInput, setSkillInput] = useState("");
+  const [skills, setSkills] = useState([]);
   const [link, setLink] = useState("");
   const navigate = useNavigate();
 
   const handleChange = (e) => {
     setFile(e.target.files[0]);
+  };
+
+  const handleAddSkill = () => {
+    if (!skillInput.trim()) return;
+
+    setSkills([...skills, skillInput]);
+    setSkillInput("");
   };
 
   const handleSubmit = async () => {
@@ -24,6 +33,7 @@ const Home = () => {
     formData.append("name", name);
     formData.append("description", description);
     formData.append("category", category);
+    formData.append("skills", JSON.stringify(skills)); // ✅ FIXED
     formData.append("link", link);
     formData.append("media", file);
 
@@ -33,15 +43,18 @@ const Home = () => {
         {
           method: "POST",
           body: formData,
-        }
+        },
       );
 
       const result = await response.json();
+
       if (response.ok) {
         alert("File uploaded successfully!");
         setName("");
         setDescription("");
         setCategory("");
+        setSkills([]);
+        setSkillInput("");
         setFile(null);
         setLink("");
       } else {
@@ -97,7 +110,7 @@ const Home = () => {
           </div>
 
           <div className="data-info">
-            <label>Design Name:</label>
+            <label>Project Name:</label>
             <input
               type="text"
               placeholder="Enter design name"
@@ -111,31 +124,57 @@ const Home = () => {
               onChange={(e) => setCategory(e.target.value)}
             >
               <option value="">Select</option>
-              <option value="App">App</option>
-              <option value="Website">Website</option>
+              <option value="NLP">NLP</option>
+              <option value="Agentic Ai">Agentic Ai</option>
+              <option value="N8N">N8N</option>
+              <option value="Mern Stack">Mern Stack</option>
+              <option value="Flutter">Flutter App</option>
               <option value="Figma">Figma</option>
+              <option value="Camunda">Camunda</option>
             </select>
 
-            <label>Description:</label>
-            <textarea
-              rows="4"
-              placeholder="Enter description..."
-              value={description}
-              onChange={(e) => setDescription(e.target.value)}
-            />
-            <label>Source URL:</label>
-            <input
-              type="text"
-              placeholder="Enter URL"
-              value={link}
-              onChange={(e) => setLink(e.target.value)}
-            />
+            <div className="skills">
+              <div>
+                <label>Skills</label>
+                <input
+                  type="text"
+                  placeholder="Enter Skills"
+                  value={skillInput}
+                  onChange={(e) => setSkillInput(e.target.value)}
+                />
+              </div>
+
+              <div>
+                <button
+                  type="button"
+                  className="addSkil"
+                  onClick={handleAddSkill}
+                >
+                  Add
+                </button>
+              </div>
+            </div>
           </div>
-          <div className="btn">
-            <button className="Add" onClick={handleSubmit}>
-              Add
-            </button>
-          </div>
+
+          <label>Description:</label>
+          <textarea
+            rows="4"
+            placeholder="Enter description..."
+            value={description}
+            onChange={(e) => setDescription(e.target.value)}
+          />
+          <label>Source URL:</label>
+          <input
+            type="text"
+            placeholder="Enter URL"
+            value={link}
+            onChange={(e) => setLink(e.target.value)}
+          />
+        </div>
+        <div className="btn">
+          <button className="Add" onClick={handleSubmit}>
+            Add
+          </button>
         </div>
       </div>
     </div>
