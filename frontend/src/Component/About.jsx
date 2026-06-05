@@ -10,19 +10,20 @@ const About = () => {
           <p className="about_me">
             About <span className="me">me</span>
           </p>
-          <p className="hire_me">Why hire me for your next project?</p>
+          <p className="hire_me">Why hire me?</p>
           <p className="about_description">
-            I’m passionate and results-driven full-stack developer who loves
-            solving real-world problems through technology. With hands-on
-            experience in web and mobile app development, I have built and
-            optimized applications that are not just functional but also
-            user-friendly and scalable.<br/> I specialize in creating smooth and
-            intuitive UIs with React.js, developing powerful backends with
-            Spring Boot, and building interactive mobile apps with React Native.
-            My projects, including e-commerce platforms and weather apps,
-            reflect my ability to turn ideas into fully functional solutions.<br/> If
-            you're looking for someone who takes ownership, continuously learns,
-            and delivers high-quality work, I’d love to be a part of your team!
+            I'm a Software Engineering student at Abasyn University with
+            hands-on experience building full-stack web apps, Flutter mobile
+            apps, and AI-integrated systems. I've worked with technologies
+            ranging from React and Node.js to Spring Boot, FastAPI, Kafka, and
+            Camunda always focused on clean architecture and real-world impact.
+            <br />
+            <br />I don't just write code — I build solutions. Whether it's a
+            booking app in Flutter, an AI chatbot, or an automated workflow in
+            Camunda, I take ownership from idea to deployment.
+            <br />
+            <br /> Always looking for opportunities to work with great teams,
+            solve real problems, and ship products that make an impact.
           </p>
         </div>
         <div className="about_img">

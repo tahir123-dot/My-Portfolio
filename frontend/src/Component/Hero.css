@@ -47,6 +47,7 @@
   overflow: hidden;
   display: flex;
   justify-content: center;
+  object-fit: cover;
   align-items: center;
   background-color: #fffdfd;
 }
@@ -130,6 +131,36 @@
 
 .contacctbtn:hover {
   background-color: #333;
+}
+
+.socialLink {
+  display: flex;
+  flex-direction: row;
+  align-items: start;
+  justify-content:flex-start;
+  gap: 16px;
+  margin-top: 40px;
+}
+
+.social-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  border: 1.5px solid rgba(0, 0, 0, 0);
+  color: rgb(92, 92, 92);
+  text-decoration: none;
+  transition: all 0.25s ease;
+  background: transparent;
+}
+
+.social-icon:hover {
+  background-color: #a6b396;
+  color: #ffffff;
+  border-color: #a6b396;
+  transform: translateY(-3px);
 }
 
 a{

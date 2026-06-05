@@ -35,25 +35,29 @@ export default function ProfileOverview() {
 function Experience() {
   const experiences = [
     {
-      company: "CodeCraft Solutions",
+      company: "Vibrex",
       date: "2024 - Present",
-      position: "Full-Stack Developer",
-      location: "Remote",
+      position: "Founder & CEO",
+      location: "Remote, Islamabad Pakistan",
       description:
-        "Developed full-stack applications using React.js, Node.js, Express.js, and Java Spring Boot. Built scalable APIs, optimized backend performance, and integrated third-party services for seamless user experience.",
+        "Founded and led a software startup focused on delivering full-stack web, mobile, and AI-powered solutions. Managed end-to-end product development from ideation to deployment — handling architecture, design, development, and client delivery independently.",
       skills: [
         "React.js",
-        "React Native",
+        "Flutter",
         "Node.js",
-        "Spring Boot",
+        "Express.js",
         "MongoDB",
-        "SQL",
-        "Firebase",
+        "AI API Integration",
+        "Rag",
+        "Agentic Ai",
+        "NLP",
+        "Figma",
+        "Git",
       ],
     },
     {
-      company: "Creative Designs Hub",
-      date: "2023 - Present",
+      company: "Safwa",
+      date: "2023 - 2024",
       position: "UI/UX & Figma Designer",
       location: "Remote",
       description:

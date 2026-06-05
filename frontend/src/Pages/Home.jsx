@@ -7,6 +7,7 @@ import Profile from "../Component/Profile";
 import Services from "../Component/Services";
 import Project from "../Component/Project";
 import Skills from "../Component/Skills";
+import Certifications from "../Component/Certifications";
 import Contact from "../Component/Contact";
 
 const Home = () => {
@@ -23,14 +24,17 @@ const Home = () => {
         <div className="white_back" id="experience">
           <Profile />
         </div>
-        <div className="black_Back" id="services">
+        {/* <div className="black_Back" id="services">
           <Services />
-        </div>
+        </div> */}
         <div className="white_back" id="projects">
           <Project />
         </div>
         <div className="black_Back" id="skills">
           <Skills />
+        </div>
+        <div className="white_back" id="certifications">
+          <Certifications />
         </div>
         <div id="contact">
           <Contact />

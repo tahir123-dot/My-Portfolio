@@ -16,10 +16,6 @@ const Nav = () => {
     setMenuOpen(false);
   };
 
-
-  
-
-
   return (
     <>
       <div className="Nav_container">
@@ -51,11 +47,18 @@ const Nav = () => {
             >
               Experience
             </li>
-            <li
+            {/* <li
               onClick={() => handleNavClick("services")}
               className={activeTab === "services" ? "active list" : "list"}
             >
               Services
+            </li> */}
+
+            <li
+              onClick={() => handleNavClick("projects")}
+              className={activeTab === "projects" ? "active list" : "list"}
+            >
+              Projects
             </li>
             <li
               onClick={() => handleNavClick("skills")}
@@ -64,10 +67,12 @@ const Nav = () => {
               Skills
             </li>
             <li
-              onClick={() => handleNavClick("projects")}
-              className={activeTab === "projects" ? "active list" : "list"}
+              onClick={() => handleNavClick("certifications")}
+              className={
+                activeTab === "certifications" ? "active list" : "list"
+              }
             >
-              Projects
+              Certificate
             </li>
           </ol>
 
@@ -108,11 +113,17 @@ const Nav = () => {
           >
             Experience
           </li>
-          <li
+          {/* <li
             onClick={() => handleNavClick("services")}
             className={activeTab === "services" ? "active" : ""}
           >
             Services
+          </li> */}
+          <li
+            onClick={() => handleNavClick("projects")}
+            className={activeTab === "projects" ? "active" : ""}
+          >
+            Projects
           </li>
           <li
             onClick={() => handleNavClick("skills")}
@@ -121,10 +132,10 @@ const Nav = () => {
             Skills
           </li>
           <li
-            onClick={() => handleNavClick("projects")}
-            className={activeTab === "projects" ? "active" : ""}
+            onClick={() => handleNavClick("certifications")}
+            className={activeTab === "certifications" ? "active" : ""}
           >
-            Projects
+            Certificate
           </li>
           <li
             onClick={() => handleNavClick("contact")}

@@ -52,6 +52,7 @@
   width: 40%;
   background-color: #2f2f2f;
   display: flex;
+  object-fit: cover;
   align-items: center;
 }
 
