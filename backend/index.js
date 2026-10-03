@@ -9,8 +9,14 @@ const authRoutes = require("./routes/userRoutes");
 
 const app = express();
 
+app.use(cors({
+  origin: [
+    "http://localhost:5173",
+    "https://tahir-rashid.vercel.app"
+  ],
+  credentials: true
+}));
 app.use(express.json());
-app.use(cors());
 
 connectDB();
 
