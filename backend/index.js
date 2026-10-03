@@ -24,6 +24,11 @@ app.use("/auth", authRoutes);
 
 const PORT = process.env.PORT || 3000;
 
-app.listen(PORT, () => {
-  console.log(`Server running on this : ${PORT}`);
-});
+// Local pe server chalao, Vercel pe nahi
+if (process.env.VERCEL !== "1") {
+  app.listen(PORT, () => {
+    console.log(`Server running on this : ${PORT}`);
+  });
+}
+
+module.exports = app;
