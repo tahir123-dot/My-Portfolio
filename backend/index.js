@@ -1,6 +1,9 @@
 require("dotenv").config();
-const dns = require("dns");
-dns.setServers(["8.8.8.8", "1.1.1.1"]);
+
+if (process.env.VERCEL !== "1") {
+  const dns = require("dns");
+  dns.setServers(["8.8.8.8", "1.1.1.1"]);
+}
 
 const express = require("express");
 const cors = require("cors");
@@ -18,17 +21,22 @@ app.use(cors({
 }));
 app.use(express.json());
 
-connectDB();
+app.use(async (req, res, next) => {
+  try {
+    await connectDB();
+    next();
+  } catch (err) {
+    console.error("DB connection failed:", err.message);
+    res.status(500).json({ error: "Database connection failed", detail: err.message });
+  }
+});
 
 app.use("/auth", authRoutes);
 
 const PORT = process.env.PORT || 3000;
 
-// Local pe server chalao, Vercel pe nahi
 if (process.env.VERCEL !== "1") {
-  app.listen(PORT, () => {
-    console.log(`Server running on this : ${PORT}`);
-  });
+  app.listen(PORT, () => console.log(`Server running on ${PORT}`));
 }
 
 module.exports = app;
