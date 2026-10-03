@@ -10,24 +10,18 @@ const About = () => {
           <p className="about_me">
             About <span className="me">me</span>
           </p>
-          <p className="hire_me">Why hire me?</p>
+          
           <p className="about_description">
-            I'm a Software Engineering student at Abasyn University with
-            hands-on experience building full-stack web apps, Flutter mobile
-            apps, and AI-integrated systems. I've worked with technologies
-            ranging from React and Node.js to Spring Boot, FastAPI, Kafka, and
-            Camunda always focused on clean architecture and real-world impact.
+            I'm a Software Engineering student at Abasyn University with hands-on experience building full-stack web apps, Flutter mobile apps, and AI-integrated systems. I work with technologies like React, Node.js, FastAPI, and Camunda, with a strong focus on clean architecture and real-world impact.
             <br />
-            <br />I don't just write code — I build solutions. Whether it's a
-            booking app in Flutter, an AI chatbot, or an automated workflow in
-            Camunda, I take ownership from idea to deployment.
+            <br />I enjoy turning ideas into working products, from designing the architecture to building the front end, back end, and deployment. My projects include a booking app in Flutter, an AI-powered chatbot, and automated business workflows using Camunda.
             <br />
-            <br /> Always looking for opportunities to work with great teams,
-            solve real problems, and ship products that make an impact.
+            <br /> I'm passionate about writing clean, maintainable code and always eager to learn new tools and technologies. Outside of coursework, I like building real projects that solve practical problems.
           </p>
         </div>
+
         <div className="about_img">
-          <img src={profile} alt="Tahir owner" />
+          <img src={profile} alt="Tahir Rashid" width="800" height="1000" />
         </div>
       </div>
     </>

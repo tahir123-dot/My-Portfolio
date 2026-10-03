@@ -2,34 +2,42 @@
   max-width: 1248px;
   padding: 40px 20px;
   margin: 0 auto 60px;
+  box-sizing: border-box;
 }
 
-.title {
+.profile_container *,
+.profile_container *::before,
+.profile_container *::after {
+  box-sizing: border-box;
+}
+
+.profile_container .title {
   font-size: 36px;
   font-weight: bold;
   margin-bottom: 20px;
 }
 
-.highliight{
+.profile_container .highliight {
   color: #2199e3;
 }
 
-/* Tabs Styling */
-.tab-wrapper {
+/* Tabs */
+.profile_container .tab-wrapper {
   display: flex;
   justify-content: flex-start;
   background: #f5f5f5;
   padding: 10px;
   border-radius: 10px;
   width: fit-content;
+  max-width: 100%;
 }
 
-.tab-container {
+.profile_container .tab-container {
   display: flex;
-  gap: 20px;
+  gap: 12px;
 }
 
-.tab {
+.profile_container .tab {
   padding: 12px 20px;
   cursor: pointer;
   border: none;
@@ -40,100 +48,146 @@
   transition: all 0.3s ease;
 }
 
-.tab.active {
+.profile_container .tab.active {
   background: #2199e3;
   color: #fff;
   border-radius: 5px;
 }
 
-/* Experience Section */
-.experience-container {
+/* Experience list */
+.profile_container .experience-container {
   display: flex;
   flex-direction: column;
   gap: 30px;
   margin-top: 20px;
 }
 
-.experience-item {
+.profile_container .experience-item {
   display: flex;
-  align-items: flex-start;
+  align-items: stretch;
   gap: 30px;
 }
 
-/* Timeline */
-.timeline {
-  position: relative;
-  width: 60px;
+/* Timeline (line ab content ki height ke hisab se lambi hogi) */
+.profile_container .exp-timeline {
+  width: 40px;
+  flex-shrink: 0;
   display: flex;
   flex-direction: column;
   align-items: center;
 }
 
-.rect-box {
+.profile_container .rect-box {
   width: 40px;
   height: 40px;
   background-color: #bbb;
   border-radius: 5px;
+  flex-shrink: 0;
 }
 
-.lline {
+.profile_container .lline {
   width: 4px;
-  height: 80px;
+  flex: 1;
+  min-height: 40px;
   background-color: #2199e3;
   margin-top: 5px;
 }
 
 /* Details */
-.details {
+.profile_container .details {
   flex: 1;
+  min-width: 0;
+  overflow-wrap: anywhere;
 }
 
-.company {
+.profile_container .company {
+  margin: 0;
   font-size: 18px;
   font-weight: bold;
   color: #2199e3;
 }
 
-.date,
-.position,
-.location,
-.description {
+.profile_container .date,
+.profile_container .position,
+.profile_container .location,
+.profile_container .description {
   margin: 5px 0;
   color: #555;
+  line-height: 1.6;
+}
+
+.profile_container .position {
+  font-weight: 600;
 }
 
 /* Skills */
-.skills {
+.profile_container .skills {
   display: flex;
-  gap: 5px;
-  margin-top: 10px;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 12px;
 }
 
-.skill-tag {
+.profile_container .skill-tag {
   background-color: #ddd;
   padding: 5px 10px;
   border-radius: 5px;
   font-size: 14px;
+  white-space: nowrap;
 }
 
-/* Responsive Design */
-@media (max-width: 560px) {
-  .profile_container {
-    width: 100%;
-    padding-left: 20px;
-    padding-right: 0px;
-    margin: 0;
-    margin-bottom: 60px;
+/* Tablet */
+@media (max-width: 768px) {
+  .profile_container .title {
+    font-size: 30px;
   }
 }
 
-
-@media (max-width: 480px) {
+/* Mobile */
+@media (max-width: 560px) {
   .profile_container {
+    padding: 28px 16px;
+    margin-bottom: 40px;
+  }
+
+  .profile_container .title {
+    font-size: 26px;
+  }
+
+  .profile_container .tab-wrapper {
     width: 100%;
-    padding-left: 20px;
-    padding-right: 0px;
-    margin: 0;
-    margin-bottom: 60px;
+  }
+
+  .profile_container .tab-container {
+    width: 100%;
+    gap: 8px;
+  }
+
+  .profile_container .tab {
+    flex: 1;
+    padding: 10px 12px;
+    font-size: 15px;
+  }
+
+  .profile_container .experience-item {
+    gap: 16px;
+  }
+
+  .profile_container .exp-timeline,
+  .profile_container .rect-box {
+    width: 28px;
+  }
+
+  .profile_container .rect-box {
+    height: 28px;
+  }
+
+  .profile_container .company {
+    font-size: 17px;
+  }
+
+  .profile_container .skill-tag {
+    font-size: 13px;
+    padding: 4px 8px;
   }
 }

@@ -36,11 +36,11 @@ function Experience() {
   const experiences = [
     {
       company: "Vibrex",
-      date: "2024 - Present",
-      position: "Founder & CEO",
-      location: "Remote, Islamabad Pakistan",
+      date: "2025 - 2026",
+      position: "Full-Stack Developer",
+      location: "Tramri, Islamabad Pakistan",
       description:
-        "Founded and led a software startup focused on delivering full-stack web, mobile, and AI-powered solutions. Managed end-to-end product development from ideation to deployment — handling architecture, design, development, and client delivery independently.",
+        "Building full-stack web and mobile products at Vibrex. Developed REST APIs with Node.js and Express, React web applications and cross-platform Flutter apps, with MongoDB for data storage. Integrated AI APIs into products, including RAG pipelines, agentic AI workflows and NLP features. Designed UI/UX in Figma and worked across the full cycle from architecture to deployment, using Git for version control",
       skills: [
         "React.js",
         "Flutter",
@@ -103,7 +103,7 @@ function Education() {
         </div>
         <div className="details">
           <h3 className="company">Abasyn University</h3>
-          <p className="date">2022 - Current</p>
+          <p className="date">2022 - 2026</p>
           <p className="position">BS Software Engineering</p>
           <p className="description">
             Focused on software development, database management, and system

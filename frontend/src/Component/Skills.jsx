@@ -53,21 +53,6 @@ const skills = [
     level: 3,
   },
   {
-    name: "SQL",
-    desc: "I write complex queries, manage relational databases, and design efficient, well-structured data schemas.",
-    level: 3,
-  },
-  {
-    name: "Firebase",
-    desc: "I integrate Firebase for real-time databases, authentication, cloud storage, and push notifications.",
-    level: 4,
-  },
-  {
-    name: "Java & Spring Boot",
-    desc: "I build enterprise-level applications with Java, Spring Boot, microservices, and RESTful API design.",
-    level: 4,
-  },
-  {
     name: "FastAPI",
     desc: "I build high-performance Python APIs using FastAPI with async support and automatic documentation.",
     level: 3,
@@ -106,11 +91,6 @@ const skills = [
     name: "Redux",
     desc: "I manage complex application state using Redux Toolkit with clean actions, reducers, and middleware.",
     level: 4,
-  },
-  {
-    name: "Apache Kafka",
-    desc: "I implement event-driven architecture using Kafka for reliable, high-throughput message streaming systems.",
-    level: 3,
   },
   {
     name: "Camunda & BPMN",

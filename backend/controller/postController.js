@@ -55,7 +55,7 @@ const getAllPosts = async (req, res) => {
         ? { category: { $regex: new RegExp(category, "i") } }
         : {};
 
-    const posts = await Post.find(filter);
+    const posts = await Post.find(filter).sort({ _id: -1 });
     res.status(200).json(posts);
   } catch (error) {
     console.error(error);

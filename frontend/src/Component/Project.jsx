@@ -36,24 +36,42 @@ const Project = () => {
 
       {/* Projects Grid */}
       <div className="projects-grid">
-        {posts.slice(0, 6).map((post, index) => (
+        {posts.slice(0, 6).map((post) => (
           <div
-            key={index}
+            key={post._id}
             className="projeccct-card"
+            role="button"
+            tabIndex={0}
+            aria-label={`Open project ${post.name}`}
             onClick={() => {
-              setShowDetail(true);
               setSelected(post);
+              setShowDetail(true);
+            }}
+            onKeyDown={(e) => {
+              if (e.key === "Enter" || e.key === " ") {
+                e.preventDefault();
+                setSelected(post);
+                setShowDetail(true);
+              }
             }}
           >
             {post.mediaType === "image" ? (
-              <img src={post.mediaUrl} alt={post.name} className="postimg" />
+              <img
+                src={post.mediaUrl}
+                alt={post.name}
+                className="postimg"
+                loading="lazy"
+              />
             ) : (
-              <video autoPlay muted>
-                <source
-                  src={`${post.mediaUrl}?q_auto,f_auto`}
-                  className="postvideo"
-                />
-              </video>
+              <video
+                className="postvideo"
+                src={post.mediaUrl}
+                autoPlay
+                muted
+                loop
+                playsInline
+                preload="metadata"
+              />
             )}
           </div>
         ))}
@@ -76,8 +94,12 @@ const Project = () => {
           </div>
         </Link>
       </div>
-      {showDetail && <Projectdetail product={selected} onClose={() => setShowDetail(false)} />}
-
+      {showDetail && (
+        <Projectdetail
+          product={selected}
+          onClose={() => setShowDetail(false)}
+        />
+      )}
     </div>
   );
 };

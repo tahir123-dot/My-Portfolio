@@ -29,6 +29,7 @@ const login = async (req, res) => {
   try {
     const { email, password } = req.body;
 
+
     // Check if user exists
     const finduser = await User.findOne({ email });
     if (!finduser) {
@@ -42,12 +43,14 @@ const login = async (req, res) => {
 
     // Compare password
     const isMatch = await bcrypt.compare(password, finduser.password);
+    
     if (!isMatch) {
       return res.status(400).json({ message: "Invalid credentials" });
     }
 
     //  Generate JWT Token
     const token = generateToken(finduser);
+
 
     res.status(200).json({
       message: "Successfully logged in",
